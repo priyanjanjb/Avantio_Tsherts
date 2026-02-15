@@ -1,4 +1,3 @@
-import React from "react";
 import facebook from "../assets/icons/facebook-app-symbol.png"
 import tiktok from "../assets/icons/tik-tok.png"
 import instagram from "../assets/icons/instagram.png"

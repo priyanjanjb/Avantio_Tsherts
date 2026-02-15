@@ -1,4 +1,3 @@
-import React from 'react'
 import tImage from "../assets/—Pngtree—vibrant orange short sleeve polo_21809262.png"
 
 function HeroSection() {

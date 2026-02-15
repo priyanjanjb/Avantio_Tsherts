@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect } from "react";
 import arrow from "../assets/icons/right.png";
 import shirt1 from "../assets/tshers/Free Kids T-Shirt Mockup_03.png";
 // ... import other shirts as before

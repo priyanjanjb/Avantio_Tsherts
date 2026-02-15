@@ -1,4 +1,3 @@
-import React from "react";
 import { useNavigate } from "react-router-dom";
 import shirtImage from "../assets/tshers/Free Kids T-Shirt Mockup_03.png";
 
