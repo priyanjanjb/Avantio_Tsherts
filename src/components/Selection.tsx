@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import arrow from "../assets/icons/right.png";
 import shirt1 from "../assets/tshers/Free Kids T-Shirt Mockup_03.png";
 
@@ -9,30 +9,65 @@ function Selection() {
   const shirtImages = Array(16).fill(shirt1);
 
   const [rotation, setRotation] = useState(0);
+  const targetRotation = useRef(0);
+
   const dragging = useRef(false);
   const lastX = useRef(0);
 
-  // ---- Move logic ----
+  /* ======================
+     Smooth animation loop
+  ======================= */
+  useEffect(() => {
+    let frame: number;
+
+    const animate = () => {
+      setRotation((r) => r + (targetRotation.current - r) * 0.1);
+      frame = requestAnimationFrame(animate);
+    };
+
+    animate();
+    return () => cancelAnimationFrame(frame);
+  }, []);
+
+  /* ======================
+     Drag movement
+  ======================= */
   const moveDrag = (clientX: number) => {
     if (!dragging.current) return;
 
     const delta = clientX - lastX.current;
-    const rotationSpeed = 0.01;
+    const rotationSpeed = 0.005; // slow & smooth
 
-    setRotation((r) => r + delta * rotationSpeed);
+    targetRotation.current += delta * rotationSpeed;
     lastX.current = clientX;
   };
 
-  /* =======================
-     MOUSE EVENTS
-  ======================== */
-
-  const handleWindowMove = (e: MouseEvent) => {
+  /* ======================
+     Mouse handlers
+  ======================= */
+  const handleWindowMove = (e: MouseEvent) =>
     moveDrag(e.clientX);
-  };
 
+  /* ======================
+     Touch handlers
+  ======================= */
+  const handleTouchMove = (e: TouchEvent) =>
+    moveDrag(e.touches[0].clientX);
+
+  /* ======================
+     End drag + snap to arrow
+  ======================= */
   const endDrag = () => {
     dragging.current = false;
+
+    // Snap shirt to arrow
+    const anglePerShirt = (2 * Math.PI) / shirts.length;
+    const nearestIndex = Math.round(
+      -targetRotation.current / anglePerShirt
+    );
+
+    targetRotation.current =
+      -nearestIndex * anglePerShirt;
 
     window.removeEventListener("mousemove", handleWindowMove);
     window.removeEventListener("mouseup", endDrag);
@@ -41,6 +76,9 @@ function Selection() {
     window.removeEventListener("touchend", endDrag);
   };
 
+  /* ======================
+     Start drag
+  ======================= */
   const startDrag = (clientX: number) => {
     dragging.current = true;
     lastX.current = clientX;
@@ -52,21 +90,11 @@ function Selection() {
     window.addEventListener("touchend", endDrag);
   };
 
-  const handleMouseDown = (e: React.MouseEvent) => {
+  const handleMouseDown = (e: React.MouseEvent) =>
     startDrag(e.clientX);
-  };
 
-  /* =======================
-     TOUCH EVENTS
-  ======================== */
-
-  const handleTouchMove = (e: TouchEvent) => {
-    moveDrag(e.touches[0].clientX);
-  };
-
-  const handleTouchStart = (e: React.TouchEvent) => {
+  const handleTouchStart = (e: React.TouchEvent) =>
     startDrag(e.touches[0].clientX);
-  };
 
   return (
     <div className="h-[450px] flex flex-col items-center justify-center overflow-hidden select-none">
@@ -77,12 +105,18 @@ function Selection() {
         onTouchStart={handleTouchStart}
       >
         {shirts.map((id, i) => {
-          const angle = (i / shirts.length) * 2 * Math.PI + rotation;
+          const angle =
+            (i / shirts.length) * 2 * Math.PI + rotation;
+
           const x = Math.cos(angle) * radius;
           const y = Math.sin(angle) * radius + 530;
 
-          const scale = 1.2 - 0.3 * Math.abs(Math.sin(angle));
-          const zIndex = Math.round(100 - Math.abs(Math.sin(angle)) * 100);
+          const scale =
+            1.2 - 0.3 * Math.abs(Math.sin(angle));
+
+          const zIndex = Math.round(
+            100 - Math.abs(Math.sin(angle)) * 100
+          );
 
           return (
             <div
