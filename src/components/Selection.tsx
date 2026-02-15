@@ -7,37 +7,45 @@ function Selection() {
   const shirts = Array.from({ length: 16 }, (_, i) => i + 1); // 16 shirts
   const radius = 660;
 
-  const shirtImages = [
-    shirt1, shirt1, shirt1, shirt1,
-    shirt1, shirt1, shirt1, shirt1,
-    shirt1, shirt1, shirt1, shirt1,
-    shirt1, shirt1, shirt1, shirt1,
-  ];
+  const shirtImages = Array(16).fill(shirt1); // simplified, all same for now
 
   const [rotation, setRotation] = useState(0);
   const dragging = useRef(false);
   const lastX = useRef(0);
   const velocity = useRef(0);
 
-  // Mouse events
-  const handleMouseDown = (e: { clientX: number }) => {
+  // --- Start drag (mouse or touch) ---
+  const startDrag = (clientX: number) => {
     dragging.current = true;
-    lastX.current = e.clientX;
+    lastX.current = clientX;
     velocity.current = 0;
   };
 
-  const handleMouseUp = () => {
-    dragging.current = false;
-  };
+  const handleMouseDown = (e: React.MouseEvent) => startDrag(e.clientX);
+  const handleTouchStart = (e: React.TouchEvent) =>
+    startDrag(e.touches[0].clientX);
 
-  const handleMouseMove = (e: { clientX: number }) => {
+  // --- Move drag (mouse or touch) ---
+  const moveDrag = (clientX: number) => {
     if (!dragging.current) return;
-    const delta = e.clientX - lastX.current;
+    const delta = clientX - lastX.current;
     const rotationSpeed = 0.01;
     setRotation((r) => r + delta * rotationSpeed);
     velocity.current = delta * rotationSpeed;
-    lastX.current = e.clientX;
+    lastX.current = clientX;
   };
+
+  const handleMouseMove = (e: React.MouseEvent) => moveDrag(e.clientX);
+  const handleTouchMove = (e: React.TouchEvent) =>
+    moveDrag(e.touches[0].clientX);
+
+  // --- End drag ---
+  const endDrag = () => {
+    dragging.current = false;
+  };
+
+  const handleMouseUp = endDrag;
+  const handleTouchEnd = endDrag;
 
   // Inertia + auto-align
   useEffect(() => {
@@ -73,9 +81,15 @@ function Selection() {
       onMouseMove={handleMouseMove}
       onMouseUp={handleMouseUp}
       onMouseLeave={handleMouseUp}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={handleTouchEnd}
     >
       {/* Wheel */}
-      <div className="relative w-full h-96 flex justify-center items-center">
+      <div
+        className="relative w-full h-96 flex justify-center items-center"
+        onMouseDown={handleMouseDown}
+        onTouchStart={handleTouchStart}
+      >
         {shirts.map((id, i) => {
           const angle = (i / shirts.length) * 2 * Math.PI + rotation;
           const x = Math.cos(angle) * radius;
@@ -97,7 +111,6 @@ function Selection() {
                 src={shirtImages[i]}
                 alt={`Shirt ${id}`}
                 className="w-[240px] h-[260px] object-contain cursor-grab"
-                onMouseDown={handleMouseDown}
               />
             </div>
           );
