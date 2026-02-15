@@ -1,0 +1,13 @@
+@import url('https://fonts.google.com/share?selection.family=Belleza');
+@import url('https://fonts.google.com/share?selection.family=Belleza|Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Belleza';
+  src: url('./src/assets/font/Belleza-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
