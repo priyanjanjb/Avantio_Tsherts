@@ -1,5 +1,3 @@
-import React from 'react'
-
 import NavigationBar from '../components/NavigationBar'
 import HeroSection from '../components/HeroSection'
 import Selection from '../components/Selection'

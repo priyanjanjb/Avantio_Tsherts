@@ -1,4 +1,3 @@
-import React from "react";
 import shirtImage from "../assets/—Pngtree—vibrant orange short sleeve polo_21809262.png";
 import NavigationBar from "../components/NavigationBar";
 
