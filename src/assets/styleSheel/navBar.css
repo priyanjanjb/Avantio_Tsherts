@@ -1,0 +1,56 @@
+.navigation-background{
+   @apply bg-[#dbb456] shadow-md w-full mt-3;
+}
+
+.nav-container{
+   @apply max-w-7xl mx-auto;
+}
+
+/* logo */
+  .nav-logo {
+    @apply w-16 sm:w-20 md:w-24 cursor-pointer;
+  }
+
+  /* desktop menu */
+  .nav-menu {
+    @apply hidden md:flex gap-8 lg:gap-12 font-medium text-gray-700;
+  }
+
+  .nav-link {
+    @apply cursor-pointer hover:text-black;
+  }
+
+  /* desktop icons */
+  .nav-icons {
+    @apply hidden md:flex gap-4 lg:gap-6 items-center;
+  }
+
+  .nav-icon {
+    @apply w-6 h-6 lg:w-7 lg:h-7 cursor-pointer;
+  }
+
+  /* mobile button */
+  .nav-mobile-btn {
+    @apply md:hidden;
+  }
+
+  .nav-mobile-icon {
+    @apply w-7 h-7 text-gray-700;
+  }
+
+  /* mobile menu */
+  .nav-mobile-menu {
+    @apply md:hidden overflow-hidden transition-all duration-300;
+  }
+
+  .nav-mobile-content {
+    @apply flex flex-col gap-4 font-medium text-gray-700;
+  }
+
+  .nav-mobile-icons {
+    @apply flex gap-6 mt-2;
+  }
+
+  .nav-mobile-icon-img {
+    @apply w-7 h-7 cursor-pointer;
+  }

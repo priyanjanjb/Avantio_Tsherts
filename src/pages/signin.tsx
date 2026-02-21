@@ -1,5 +1,5 @@
-import bgImage from "../assets/AVANTIO_Logo.png"
-import logo from "../assets/AVANTIO_Logo.png"
+import bgImage from "../assets/logo/AVANTIO_Logo.png"
+import logo from "../assets/logo/AVANTIO_Logo.png"
 
 function Signin() {
     const handleNavigate = () => {

@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import arrow from "../assets/icons/right.png";
 import shirt1 from "../assets/tshers/Free Kids T-Shirt Mockup_03.png";
+import "../assets/styleSheel/selection.css";
 
 function Selection() {
   const shirts = Array.from({ length: 16 }, (_, i) => i + 1);
@@ -97,10 +98,10 @@ function Selection() {
     startDrag(e.touches[0].clientX);
 
   return (
-    <div className="h-[450px] flex flex-col items-center justify-center overflow-hidden select-none">
+    <div className="selection-wrapper">
       {/* Wheel */}
       <div
-        className="relative w-full h-96 flex justify-center items-center"
+        className="selection-wheel"
         onMouseDown={handleMouseDown}
         onTouchStart={handleTouchStart}
       >
@@ -130,7 +131,7 @@ function Selection() {
               <img
                 src={shirtImages[i]}
                 alt={`Shirt ${id}`}
-                className="w-[240px] h-[260px] object-contain cursor-grab"
+                className="shirt-image"
               />
             </div>
           );
@@ -138,13 +139,12 @@ function Selection() {
       </div>
 
       {/* Arrow */}
-      <p className="mt-[-200px] text-gray-600 flex flex-col items-center">
+      <p className="selection-arrow">
         <img
           src={arrow}
           alt="Arrow"
-          className="w-12 h-12 mb-2 rotate-[-90]"
         />
-        <span className="text-2xl font-semibold">
+        <span>
           DRAG LEFT OR RIGHT
         </span>
       </p>

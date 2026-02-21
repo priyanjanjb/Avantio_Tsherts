@@ -1,57 +1,57 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Logo from "../assets/AVANTIO_Logo.png";
+import Logo from "../assets/logo/AVANTIO_Logo.png";
 import heart from "../assets/icons/heart.png";
 import cart from "../assets/icons/shopping-cart.png";
 import user from "../assets/icons/user.png";
+import "../assets/styleSheel/navBar.css";
 
 function NavigationBar() {
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
 
-  const handleNavigate = () => {
-    navigate("/");
-  };
+  const handleNavigate = () => navigate("/");
 
   return (
-    <nav className="bg-[#dbb456] shadow-md px-4 md:px-5 mt-3  md:py-1">
-      {/* Main Navbar Row */}
-      <div className="flex justify-between items-center py-3 md:py-1">
-        {/* Logo */}
-        <img
-          src={Logo}
-          alt="Avantio Logo"
-          className="w-20 cursor-pointer"
-          onClick={handleNavigate}
-        />
+    <nav className="navigation-background">
+      <div className="nav-container">
 
-        {/* Desktop Menu */}
-        <div className="hidden md:flex gap-8 font-medium text-gray-700">
-          <p className="cursor-pointer hover:text-black">Home</p>
-          <p className="cursor-pointer hover:text-black">Service</p>
-          <p className="cursor-pointer hover:text-black">Projects</p>
-          <p className="cursor-pointer hover:text-black">About Us</p>
-        </div>
+        {/* Top Row */}
+        <div className="flex justify-between items-center py-1">
 
-        {/* Desktop Icons */}
-        <div className="hidden md:flex gap-5 items-center">
-          <img src={heart} alt="Heart Icon" className="w-8 h-8 cursor-pointer" />
-          <img src={cart} alt="Cart Icon" className="w-8 h-8 cursor-pointer" />
-          <img src={user} alt="User Icon" className="w-8 h-8 cursor-pointer" />
-        </div>
+          {/* Logo */}
+          <img
+            src={Logo}
+            alt="Avantio Logo"
+            onClick={handleNavigate}
+            className="nav-logo"
+          />
 
-        {/* Hamburger Menu for Mobile */}
-        <div className="md:hidden flex items-center">
+          {/* Desktop Menu */}
+          <div className="nav-menu">
+            <p className="nav-link">Home</p>
+            <p className="nav-link">Service</p>
+            <p className="nav-link">Projects</p>
+            <p className="nav-link">About Us</p>
+          </div>
+
+          {/* Desktop Icons */}
+          <div className="nav-icons">
+            <img src={heart} alt="Heart" className="nav-icon" />
+            <img src={cart} alt="Cart" className="nav-icon" />
+            <img src={user} alt="User" className="nav-icon" />
+          </div>
+
+          {/* Mobile Menu Button */}
           <button
-            className="focus:outline-none"
+            className="nav-mobile-btn"
             onClick={() => setIsOpen(!isOpen)}
           >
             <svg
-              className="w-8 h-8 text-gray-700"
+              className="nav-mobile-icon"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
             >
               {isOpen ? (
                 <path
@@ -70,24 +70,30 @@ function NavigationBar() {
               )}
             </svg>
           </button>
+
         </div>
-      </div>
 
-      {/* Mobile Menu */}
-      {isOpen && (
-        <div className="md:hidden flex flex-col gap-3 font-medium text-gray-700 pb-3">
-          <p className="cursor-pointer hover:text-black">Home</p>
-          <p className="cursor-pointer hover:text-black">Service</p>
-          <p className="cursor-pointer hover:text-black">Projects</p>
-          <p className="cursor-pointer hover:text-black">About Us</p>
+        {/* Mobile Menu */}
+        <div
+          className={`nav-mobile-menu ${
+            isOpen ? "max-h-96 pb-4" : "max-h-0"
+          }`}
+        >
+          <div className="nav-mobile-content">
+            <p className="nav-link">Home</p>
+            <p className="nav-link">Service</p>
+            <p className="nav-link">Projects</p>
+            <p className="nav-link">About Us</p>
 
-          <div className="flex gap-5 mt-2">
-            <img src={heart} alt="Heart Icon" className="w-8 h-8 cursor-pointer" />
-            <img src={cart} alt="Cart Icon" className="w-8 h-8 cursor-pointer" />
-            <img src={user} alt="User Icon" className="w-8 h-8 cursor-pointer" />
+            <div className="nav-mobile-icons">
+              <img src={heart} alt="Heart" className="nav-mobile-icon-img" />
+              <img src={cart} alt="Cart" className="nav-mobile-icon-img" />
+              <img src={user} alt="User" className="nav-mobile-icon-img" />
+            </div>
           </div>
         </div>
-      )}
+
+      </div>
     </nav>
   );
 }

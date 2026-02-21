@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import shirtImage from "../assets/tshers/Free Kids T-Shirt Mockup_03.png";
+import "../assets/styleSheel/feature.css";
 
 function Features() {
   const navigate = useNavigate();
@@ -9,11 +10,11 @@ function Features() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center px-4">
-      <div className="relative w-full max-w-6xl flex flex-col md:flex-row justify-center items-center min-h-[700px] gap-8">
+    <div className="features-section">
+      <div className="features-container">
 
-        {/* LEFT FEATURES (mobile top / desktop left) */}
-        <div className="flex flex-col gap-10 md:absolute md:left-10 md:top-24 md:w-64 md:gap-20">
+        {/* LEFT FEATURES */}
+        <div className="features-column">
           <Feature
             title="Material"
             text="High quality breathable cotton fabric for maximum comfort."
@@ -29,15 +30,23 @@ function Features() {
         </div>
 
         {/* Shirt Image */}
-        <img
-          src={shirtImage}
-          alt="Shirt"
-          className="w-64 md:w-96 z-10 cursor-pointer"
-          onClick={handleNavigate}
-        />
+        <div className="shirt-container">
+          <img
+            src={shirtImage}
+            alt="Shirt"
+            className="shirt-image"
+            onClick={handleNavigate}
+          />
 
-        {/* RIGHT FEATURES (mobile bottom / desktop right) */}
-        <div className="flex flex-col gap-10 md:absolute md:right-10 md:top-24 md:w-64 md:gap-20">
+          {/* Badge */}
+          <span className="shirt-badge">360°</span>
+
+          {/* Price */}
+          <div className="shirt-price">LKR: 5000</div>
+        </div>
+
+        {/* RIGHT FEATURES */}
+        <div className="features-column">
           <Feature
             title="Sleeve Length"
             text="Perfect sleeve fit designed for comfort and flexibility."
@@ -51,19 +60,6 @@ function Features() {
             text="Lightweight yet durable fabric suitable for all seasons."
           />
         </div>
-
-        {/* Badge */}
-        <div className="absolute bottom-20 left-1/2 -translate-x-1/2 text-sm text-gray-700">
-          <span className="border px-4 py-1 rounded-full text-xs bg-white shadow">
-            360°
-          </span>
-        </div>
-
-        {/* Price */}
-        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 bg-gray-300 px-6 py-2 text-sm font-medium shadow">
-          LKR: 5000
-        </div>
-
       </div>
     </div>
   );
@@ -77,11 +73,9 @@ interface FeatureProps {
 
 function Feature({ title, text }: FeatureProps) {
   return (
-    <div className="text-center md:text-left">
-      <h3 className="text-lg font-semibold mb-2">{title}</h3>
-      <p className="text-sm text-gray-600 leading-relaxed">
-        {text}
-      </p>
+    <div>
+      <h3 className="feature-title">{title}</h3>
+      <p className="feature-text">{text}</p>
     </div>
   );
 }
