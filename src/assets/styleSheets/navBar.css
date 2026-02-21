@@ -54,3 +54,57 @@
   .nav-mobile-icon-img {
     @apply w-7 h-7 cursor-pointer;
   }
+
+
+  /* ===== Desktop Dropdown ===== */
+.user-dropdown {
+  position: absolute;
+  right: 0;
+  top: 48px;
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 6px 0;
+  width: 150px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+  border: 1px solid #f1f1f1;
+  z-index: 999;
+  animation: dropdownFade 0.18s ease;
+}
+
+/* ===== Mobile Dropdown ===== */
+.user-dropdown.mobile {
+  position: static;
+  width: 100%;
+  margin-top: 12px;
+  border-radius: 10px;
+  border: 1px solid #eee;
+  box-shadow: none;
+  background: #fafafa;
+}
+
+/* ===== Dropdown Items ===== */
+.dropdown-item {
+  padding: 11px 16px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #333;
+  transition: all 0.18s ease;
+  user-select: none;
+}
+
+.dropdown-item:hover {
+  background: #e7be5d;
+  color: #000;
+}
+
+/* ===== Smooth Animation ===== */
+@keyframes dropdownFade {
+  from {
+    opacity: 0;
+    transform: translateY(-6px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}

@@ -1,13 +1,13 @@
 import bgImage from "../assets/logo/AVANTIO_Logo.png"
 import logo from "../assets/logo/AVANTIO_Logo.png"
 
-function Signin() {
+function Signup() {
     const handleNavigate = () => {
         
     }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-900 p-4">
+    <div className="min-h-screen flex items-center justify-center ">
       
       {/* Card Container */}
       <div className="relative w-full max-w-6xl bg-white rounded-3xl shadow-xl overflow-hidden flex">
@@ -86,4 +86,4 @@ function Signin() {
   )
 }
 
-export default Signin
+export default Signup

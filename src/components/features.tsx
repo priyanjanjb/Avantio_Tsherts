@@ -5,8 +5,8 @@ import "../assets/styleSheets/feature.css";
 function Features() {
   const navigate = useNavigate();
 
-  const handleNavigate = () => {
-    navigate("/dashboard");
+  const handleNavigate = (link: string) => {
+    navigate(link);
   };
 
   return (
@@ -35,7 +35,7 @@ function Features() {
             src={shirtImage}
             alt="Shirt"
             className="shirt-image"
-            onClick={handleNavigate}
+            onClick={() => handleNavigate("/dashboard")}
           />
 
           {/* Badge */}
