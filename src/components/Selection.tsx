@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import arrow from "../assets/icons/right.png";
 import shirt1 from "../assets/tshers/Free Kids T-Shirt Mockup_03.png";
-import "../assets/styleSheel/selection.css";
+import "../assets/styleSheets/selection.css";
 
 function Selection() {
   const shirts = Array.from({ length: 16 }, (_, i) => i + 1);

@@ -4,7 +4,7 @@ import Logo from "../assets/logo/AVANTIO_Logo.png";
 import heart from "../assets/icons/heart.png";
 import cart from "../assets/icons/shopping-cart.png";
 import user from "../assets/icons/user.png";
-import "../assets/styleSheel/navBar.css";
+import "../assets/styleSheets/navBar.css";
 
 function NavigationBar() {
   const navigate = useNavigate();

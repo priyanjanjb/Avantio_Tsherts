@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import shirtImage from "../assets/tshers/Free Kids T-Shirt Mockup_03.png";
-import "../assets/styleSheel/feature.css";
+import "../assets/styleSheets/feature.css";
 
 function Features() {
   const navigate = useNavigate();

@@ -4,7 +4,7 @@ import instagram from "../assets/icons/instagram.png";
 import twitter from "../assets/icons/twitter.png";
 import snapchat from "../assets/icons/snapchat.png";
 import logo from "../assets/logo/AVANTIO_Logo.png";
-import "../assets/styleSheel/footer.css";
+import "../assets/styleSheets/footer.css";
 
 function Footer() {
   return (

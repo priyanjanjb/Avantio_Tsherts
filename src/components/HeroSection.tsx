@@ -1,5 +1,5 @@
 import tImage from "../assets/tshers/—Pngtree—vibrant orange short sleeve polo_21809262.png";
-import "../assets/styleSheel/heroBar.css"
+import "../assets/styleSheets/heroBar.css"
 function HeroSection() {
   return (
    <div className="hero-section">
