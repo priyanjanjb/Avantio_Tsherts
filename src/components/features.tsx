@@ -41,8 +41,7 @@ function Features() {
           {/* Badge */}
           <span className="shirt-badge">360°</span>
 
-          {/* Price */}
-          <div className="shirt-price">LKR: 5000</div>
+          
         </div>
 
         {/* RIGHT FEATURES */}

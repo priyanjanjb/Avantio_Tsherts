@@ -10,7 +10,7 @@
 
   /* LEFT CUSTOMIZE PANEL */
   .customize-panel {
-    @apply w-full lg:w-1/4 bg-[#d9d9d9] shadow rounded overflow-hidden flex flex-row; /* horizontal flex inside left panel for vertical menu + content */
+    @apply w-full lg:w-1/4 bg-[#d9d9d9] shadow-md rounded overflow-hidden flex flex-row;
   }
 
   /* Dark Vertical Menu */
@@ -19,7 +19,7 @@
   }
 
   .vertical-menu-item {
-    @apply w-8 h-8 bg-gray-300;
+    @apply w-8 h-8 bg-gray-300 rounded;
   }
 
   /* Main Customize Content */
@@ -37,7 +37,7 @@
   }
 
   .option-item {
-    @apply h-6 sm:h-8 bg-gray-400;
+    @apply h-6 sm:h-8 bg-gray-400 rounded;
   }
 
   /* Text Bars */
@@ -46,15 +46,15 @@
   }
 
   .text-bar-lg {
-    @apply h-2 sm:h-3 bg-gray-500 w-3/4;
+    @apply h-2 sm:h-3 bg-gray-500 w-3/4 rounded;
   }
 
   .text-bar-md {
-    @apply h-2 sm:h-3 bg-gray-500 w-2/3;
+    @apply h-2 sm:h-3 bg-gray-500 w-2/3 rounded;
   }
 
   .text-bar-sm {
-    @apply h-2 sm:h-3 bg-gray-400 w-1/2;
+    @apply h-2 sm:h-3 bg-gray-400 w-1/2 rounded;
   }
 
   /* CENTER PRODUCT */
@@ -67,12 +67,12 @@
   }
 
   .product-button {
-    @apply mt-2 sm:mt-4 px-4 sm:px-5 py-1 border rounded-full bg-white shadow text-sm sm:text-base;
+    @apply mt-2 sm:mt-4 px-4 sm:px-5 py-1 border rounded-full bg-white shadow-sm text-sm sm:text-base;
   }
 
   /* RIGHT PANEL */
   .right-panel {
-    @apply w-full lg:w-1/4 bg-white shadow p-2 sm:p-4 rounded flex flex-col gap-2 sm:gap-4 my-4 lg:my-0;
+    @apply w-full lg:w-1/4 bg-white shadow-md p-2 sm:p-4 rounded flex flex-col gap-2 sm:gap-4 my-4 lg:my-0;
   }
 
   .right-panel-item {
