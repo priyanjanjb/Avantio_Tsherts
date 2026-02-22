@@ -1,3 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
 /* ===== NAV WRAPPER ===== */
   .navigation-background {
     @apply bg-[#dbb456] shadow-md w-full mt-3 relative z-50;
@@ -102,4 +107,6 @@
     opacity: 1;
     transform: translateY(0) scale(1);
   }
+}
+
 }

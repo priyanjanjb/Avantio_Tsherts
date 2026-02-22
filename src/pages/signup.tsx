@@ -1,10 +1,15 @@
-import bgImage from "../assets/logo/AVANTIO_Logo.png"
+import { useNavigate } from "react-router-dom";
+import bgImage from "../assets/logo/AVANTIO_Logo_without_Name.png"
 import logo from "../assets/logo/AVANTIO_Logo.png"
 
 import "../assets/styleSheets/signup.css";
 
 function Signup() {
-  const handleNavigate = () => {};
+  const navigate = useNavigate();
+  
+  const handleNavigate = (path: string) => {
+    navigate(path);
+  };
 
   return (
     <div className="signup-page">
@@ -43,14 +48,14 @@ function Signup() {
               <input type="password" placeholder="New Password" className="signup-input" />
             </div>
 
-            <button className="signup-btn" onClick={handleNavigate}>
+            <button className="signup-btn" onClick={() =>handleNavigate("/login")}>
               Create an account
             </button>
           </div>
 
           <p className="signup-footer">
             Already have an account?
-            <span className="signup-link">Sign in</span>
+            <button onClick={() => handleNavigate("/login")} className="signup-link">Sign in</button>
           </p>
         </div>
       </div>

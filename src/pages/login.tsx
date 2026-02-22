@@ -1,7 +1,13 @@
 import TshirtImage from "../assets/tshers/Free Kids T-Shirt Mockup_03.png";
 import "../assets/styleSheets/login.css";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
+  const navigate = useNavigate();
+  
+  const handleNavigate = (path: string) => {
+    navigate(path);
+  };
   return (
     <div className="login-page">
       <div className="login-card">
@@ -13,7 +19,7 @@ function Login() {
               Hi Welcome Back!
             </h2>
             <h1 className="text-4xl font-bold text-black mt-2">
-              Sign in to account
+              Sign in to <br/>account
             </h1>
           </div>
 
@@ -48,15 +54,22 @@ function Login() {
 
           <p className="text-center mt-6 text-gray-600">
             Don't have an account?{" "}
-            <a href="#" className="text-yellow-600 hover:underline">
+            <button onClick={() => handleNavigate("/signup")} className="text-yellow-600 hover:underline">
               Create an account
-            </a>
+            </button>
           </p>
         </div>
 
         {/* Right side */}
-        <div className="login-right">
-          <img src={TshirtImage} alt="Tshirt Mockup" />
+        <div className="login-right relative">
+          {/* Shadow overlay */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/10 to-transparent pointer-events-none"></div>
+
+          <img
+            src={TshirtImage}
+            alt="Tshirt Mockup"
+            className="login-img relative z-10"
+          />
         </div>
 
       </div>

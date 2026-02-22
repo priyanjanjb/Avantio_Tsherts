@@ -1,3 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
 /* Hero Section Container */
   .hero-section {
     @apply px-5 sm:px-6 lg:px-10;
@@ -36,3 +41,5 @@
   .hero-image {
     @apply w-full max-w-[400px] sm:max-w-[500px] md:max-w-[550px] lg:max-w-[600px] h-auto object-cover;
   }
+
+}
