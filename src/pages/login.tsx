@@ -47,7 +47,10 @@ function Login() {
               </a>
             </div>
 
-            <button type="submit" className="login-btn">
+            <button type="submit" className="login-btn" onClick={(e) => {
+              e.preventDefault();
+              handleNavigate("/");
+            }}>
               Log in
             </button>
           </form>

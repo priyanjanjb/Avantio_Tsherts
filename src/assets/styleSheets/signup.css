@@ -18,13 +18,12 @@
   @apply hidden md:flex md:w-1/4 relative items-center justify-center;
 }
 
-/* ===== Left image overlapping ===== */
 /* Arbitrary width in Tailwind */
 .signup-left img {
   @apply object-cover opacity-90 h-auto;
   @apply [width:180%];     /* bigger than 155% */
   position: relative;
-  left: 40%;               /* push more under right panel */
+  left: 30%;               /* push more under right panel */
   transform: scale(1.35);  /* bigger visual size */
   transform-origin: center;
   z-index: 0;
