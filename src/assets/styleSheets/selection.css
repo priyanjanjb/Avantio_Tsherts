@@ -7,6 +7,7 @@
   .selection-wrapper {
     @apply h-[450px] flex flex-col items-center justify-center overflow-hidden select-none;
   }
+  
 
   /* Wheel Container */
   .selection-wheel {
@@ -14,13 +15,14 @@
   }
 
   /* Shirt Image */
-  .shirt-image {
-    @apply w-[240px] h-[260px] object-contain cursor-grab;
-  }
+.shirt-image {
+  @apply w-[240px] h-[260px] object-contain cursor-grab
+         drop-shadow-[0_14px_12px_rgba(0,0,0,0.6)];
+}
 
   /* Arrow Section */
   .selection-arrow {
-    @apply mt-[-200px] text-gray-600 flex flex-col items-center;
+    @apply mt-[-180px] text-gray-600 flex flex-col items-center;
   }
 
   .selection-arrow img {
