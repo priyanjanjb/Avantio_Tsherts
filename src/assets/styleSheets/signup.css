@@ -5,17 +5,16 @@
 @layer components {
 /* ===== Page wrapper ===== */
   .signup-page {
-    @apply min-h-screen flex items-center justify-center bg-gray-100;
+    @apply min-h-screen flex items-center justify-center;
   }
 
-  /* ===== Card ===== */
-  .signup-card {
-    @apply relative w-2/3 max-w-6xl bg-white rounded-3xl shadow-xl overflow-hidden flex flex-col md:flex-row;
-  }
+ .signup-card {
+  @apply relative w-1/2 max-w-6xl bg-white rounded-3xl shadow-xl overflow-hidden flex flex-col md:flex-row border-2 ;
+}
 
   /* ===== Left image ===== */
   .signup-left {
-  @apply hidden md:flex md:w-1/4 relative items-center justify-center;
+  @apply hidden md:flex md:w-3/4 relative items-center justify-center;
 }
 
 /* Arbitrary width in Tailwind */
@@ -23,8 +22,8 @@
   @apply object-cover opacity-90 h-auto;
   @apply [width:180%];     /* bigger than 155% */
   position: relative;
-  left: 30%;               /* push more under right panel */
-  transform: scale(1.35);  /* bigger visual size */
+  left: 20%;               /* push more under right panel */
+  transform: scale(1.65);  /* bigger visual size */
   transform-origin: center;
   z-index: 0;
 }
@@ -32,7 +31,7 @@
 
  /* ===== Right section with transparent background ===== */
 .signup-right {
-  @apply w-full md:w-2/4 p-10 flex flex-col  relative bg-white/50; /* 80% opacity */
+  @apply w-full  p-10 flex flex-col  relative bg-white/50; /* 80% opacity */
   box-shadow: -8px 0 16px -8px rgba(0, 0, 0, 0.3);
   z-index: 10; /* keep on top of image */
 }
@@ -44,12 +43,12 @@
   }
 
   .signup-logo {
-    @apply h-6;
+    @apply h-10;
   }
 
   /* ===== Inputs ===== */
   .signup-input {
-    @apply w-full border border-gray-200 rounded-lg px-4 py-3 outline-none transition;
+    @apply w-full border border-gray-200 rounded-lg px-4 py-3 outline-none transition  border-[#000000] rounded-lg;
   }
 
   .signup-input:focus {

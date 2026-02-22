@@ -4,48 +4,56 @@
 
 @layer components {
 
-  /* Page wrapper */
+  /* ===== Page wrapper ===== */
   .login-page {
-    @apply min-h-screen flex items-center justify-center bg-white p-4;
+    @apply min-h-screen flex items-center justify-center bg-gray-100;
   }
 
-  /* Card */
+  /* ===== Card ===== */
   .login-card {
-    @apply w-full max-w-[1200px] bg-white rounded-[20px] overflow-hidden
-          flex flex-col lg:flex-row
-          shadow-[0_20px_40px_rgba(0,0,0,0.08)] ;
+    @apply relative min-h-screen w-1/2 max-w-6xl bg-white rounded-3xl shadow-xl
+           overflow-hidden flex flex-col md:flex-row border-2;
   }
 
-  /* Left side */
+  /* ===== LEFT (form panel — on top) ===== */
   .login-left {
-    @apply lg:w-1/2 p-10 flex flex-col justify-center ;
-  }
-
-  /* Right side */
-.login-right {
-  @apply lg:w-1/2 relative overflow-hidden
-         bg-gradient-to-br from-gray-100 to-gray-200
-         flex items-center justify-center p-10;
+  @apply w-full p-10 flex flex-col justify-center
+         relative bg-white/50 z-10;
+  box-shadow: 8px 0 16px -8px rgba(0, 0, 0, 0.25);
 }
 
-  /* Inputs */
+  /* ===== RIGHT (background image side) ===== */
+  .login-right {
+    @apply hidden md:flex md:w-3/4 relative items-center justify-center;
+  }
+
+  .login-img {
+    @apply object-contain opacity-90 h-auto;
+    @apply [width:180%];
+    position: relative;
+    left: -17%;              /* push under left panel */
+    transform: scale(1.25);
+    transform-origin: center;
+    z-index: 0;
+  }
+
+  /* ===== Inputs ===== */
   .login-input {
-    @apply w-full border border-gray-300 rounded-xl px-4 py-3 outline-none
-          transition focus:border-yellow-400
-          focus:ring-2 focus:ring-yellow-300/40;
+    @apply w-full border border-gray-200 rounded-lg px-4 py-3
+           outline-none transition border-[#000000];
   }
 
-  /* Button */
+  .login-input:focus {
+    @apply border-[#d4b46a];
+  }
+
+  /* ===== Button ===== */
   .login-btn {
-    @apply w-full bg-[#d4b46a] text-white py-3 rounded-xl
-          font-semibold transition hover:bg-yellow-500;
+    @apply w-full bg-[#d4b46a] text-white py-3 rounded-lg
+           mt-2 border-none cursor-pointer transition;
   }
 
- /* Image */
-.login-img {
-  @apply w-full max-w-[380px] object-contain
-         drop-shadow-[0_30px_40px_rgba(0,0,0,0.25)]
-         transition duration-500 ease-in-out
-         hover:scale-105;
-}
+  .login-btn:hover {
+    @apply opacity-90;
+  }
 }

@@ -1,7 +1,7 @@
 import TshirtImage from "../assets/tshers/Free Kids T-Shirt Mockup_03.png";
 import "../assets/styleSheets/login.css";
 import { useNavigate } from "react-router-dom";
-
+import logo from "../assets/logo/AVANTIO_Logo.png"
 function Login() {
   const navigate = useNavigate();
   
@@ -15,6 +15,13 @@ function Login() {
         {/* Left side */}
         <div className="login-left">
           <div className="mb-8">
+            {/* Header */}
+          <div className="signup-header">
+            <img src={logo} className="signup-logo" />
+            <p className="text-sm text-gray-500 cursor-pointer">
+              English (US)
+            </p>
+          </div>
             <h2 className="text-2xl font-semibold text-gray-800">
               Hi Welcome Back!
             </h2>
@@ -64,14 +71,11 @@ function Login() {
         </div>
 
         {/* Right side */}
-        <div className="login-right relative">
-          {/* Shadow overlay */}
-          <div className="absolute inset-0 bg-gradient-to-r from-black/10 to-transparent pointer-events-none"></div>
-
+        <div className="login-right">
           <img
             src={TshirtImage}
             alt="Tshirt Mockup"
-            className="login-img relative z-10"
+            className="login-img"
           />
         </div>
 
