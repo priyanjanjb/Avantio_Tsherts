@@ -8,10 +8,9 @@
     @apply min-h-screen flex items-center justify-center;
   }
 
- .signup-card {
-  @apply relative w-1/2 max-w-6xl bg-white rounded-3xl shadow-xl overflow-hidden flex flex-col md:flex-row border-2 ;
+.signup-card {
+  @apply relative w-full md:w-1/2 max-w-6xl bg-white rounded-3xl shadow-xl overflow-hidden flex flex-col md:flex-row border-2;
 }
-
   /* ===== Left image ===== */
   .signup-left {
   @apply hidden md:flex md:w-3/4 relative items-center justify-center;
@@ -42,9 +41,17 @@
     @apply flex justify-between items-center mb-8;
   }
 
-  .signup-logo {
-    @apply h-10;
+  /* Ensure logo stays on top on all screens */
+.signup-logo {
+  @apply relative z-20 h-10;
+}
+
+/* Optional: adjust right panel stacking on small screens */
+@media (max-width: 768px) {
+  .signup-right {
+    @apply bg-white/100; /* full opacity on small screens to prevent transparency issues */
   }
+}
 
   /* ===== Inputs ===== */
   .signup-input {
