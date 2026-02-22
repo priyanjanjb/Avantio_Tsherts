@@ -46,7 +46,7 @@
  .hero-image {
   @apply w-full max-w-[600px] sm:max-w-[720px] md:max-w-[800px] lg:max-w-[880px] 
   h-auto object-contain
-  drop-shadow-[25px_0_35px_rgba(0,0,0,0.35)];
+  drop-shadow-[10px_0_15px_rgba(0,0,0,0.4)];
 }
 
 }

@@ -15,7 +15,7 @@
   }
 
   /* Shirt Image */
-.shirt-image {
+.shirt-image-selection {
   @apply w-[240px] h-[260px] object-contain cursor-grab
          drop-shadow-[0_14px_12px_rgba(0,0,0,0.6)];
 }
@@ -25,10 +25,21 @@
     @apply mt-[-180px] text-gray-600 flex flex-col items-center;
   }
 
-  .selection-arrow img {
-    @apply w-12 h-12 mb-2 rotate-[-90];
+/* Keyframes for jump */
+@keyframes jump {
+  0%, 100% {
+    transform: translateY(0) ;
   }
+  50% {
+    transform: translateY(-15px) ;
+  }
+}
 
+/* Apply animation to arrow image */
+.selection-arrow img {
+  @apply w-12 h-12 mb-2;
+  animation: jump 1s ease-in-out infinite;
+}
   .selection-arrow span {
     @apply text-2xl font-semibold;
   }

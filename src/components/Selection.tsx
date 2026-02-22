@@ -131,7 +131,7 @@ function Selection() {
               <img
                 src={shirtImages[i]}
                 alt={`Shirt ${id}`}
-                className="shirt-image"
+                className="shirt-image-selection"
               />
             </div>
           );
